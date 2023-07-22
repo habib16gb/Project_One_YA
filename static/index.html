@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="/index.js" defer></script>
+    <title>Project One</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>project one</h1>
+    </header>
+    <section class="show">
+      <div class="addSection">
+        <input type="text" placeholder="add a task..." id="text_task" />
+        <button class="btn btn_add" id="add_task">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <button class="btn btn_remove_all" id="remove_all_tasks">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+      <div class="listTasks">
+        <ul id="ulListTasks"></ul>
+      </div>
+    </section>
+  </body>
+</html>
