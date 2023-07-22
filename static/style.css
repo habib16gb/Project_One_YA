@@ -46,13 +46,19 @@ input[type="text"] {
   border: 2px solid var(--primColor);
 }
 
+input[name="actTask"] {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
 input:placeholder-shown {
   text-transform: capitalize;
 }
 
 input[type="text"] :active,
 input[type="text"] :focus {
-  outline: 2px solid var(--btnColor);
+  outline: 1px solid var(--btnColor);
 }
 
 .header {
@@ -83,6 +89,7 @@ input[type="text"] :focus {
 
 .btn_add {
   background-color: var(--greenColor);
+  margin-left: 1rem;
 }
 
 .btn_remove,
@@ -95,7 +102,7 @@ input[type="text"] :focus {
   margin-top: 1.2rem;
 }
 
-.tadkItem {
+.tadkItem form {
   margin-bottom: 0.5rem;
   padding: 0.3rem;
   border-bottom: 1px solid var(--btnColor);

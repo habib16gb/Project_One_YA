@@ -4,23 +4,23 @@ const remove_btn = document.getElementById("remove_task");
 const text_task = document.getElementById("text_task");
 const ulListTasks = document.getElementById("ulListTasks");
 
-let tasks = [];
+// let tasks = [];
 
-add_task_btn.addEventListener("click", () => {
-  tasks.push(text_task.value);
-  updateUI(tasks);
-  text_task.value = "";
-});
+// add_task_btn.addEventListener("click", () => {
+//   tasks.push(text_task.value);
+//   updateUI(tasks);
+//   text_task.value = "";
+// });
 
-remove_all_btn.addEventListener("click", () => {
-  const checkedTasks = document.querySelectorAll("input[type='checkbox']");
+// remove_all_btn.addEventListener("click", () => {
+//   const checkedTasks = document.querySelectorAll("input[type='checkbox']");
 
-  const newTasks = Array.from(checkedTasks)
-    .filter((ele) => !ele.checked)
-    .map((ele) => ele.nextElementSibling.textContent);
+//   const newTasks = Array.from(checkedTasks)
+//     .filter((ele) => !ele.checked)
+//     .map((ele) => ele.nextElementSibling.textContent);
 
-  updateUI(newTasks);
-});
+//   updateUI(newTasks);
+// });
 
 function updateUI(arr) {
   ulListTasks.innerHTML = arr
@@ -28,19 +28,29 @@ function updateUI(arr) {
       (task, i) => `
   <li>
       <div class="tadkItem">
-        <input type="checkbox" name="checkTask" class="checkTask" />
-        <label>${task}</label>
-        <button class="btn btn_remove" id="remove_task" onclick="removeItem(${i})">
-          <i class="fa-regular fa-trash-can"></i>
-        </button>
-      </div>
+        <form action="/removeTask" method="post">
+          <input type="checkbox" name="checkTask" class="checkTask" />
+          <input type="text" readonly name="actTask" value="${task.newTask}" >
+          <button type="submit" class="btn btn_remove" id="remove_task">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+      </form>
+    <div>
     </li>
   `
     )
     .join("");
 }
 
-function removeItem(id) {
-  tasks.splice(id, 1);
-  updateUI(tasks);
-}
+// (async () => {
+//   const response = await fetch("/getTasks");
+//   const jsonData = await response.json();
+
+//   updateUI(jsonData);
+// })();
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("/getTasks")
+    .then((res) => res.json())
+    .then((data) => updateUI(data));
+});

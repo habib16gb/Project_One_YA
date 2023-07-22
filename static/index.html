@@ -12,6 +12,7 @@
       referrerpolicy="no-referrer"
     />
     <script src="/index.js" defer></script>
+    <script src="removeAll.js" defer></script>
     <title>Project One</title>
   </head>
   <body>
@@ -20,10 +21,19 @@
     </header>
     <section class="show">
       <div class="addSection">
-        <input type="text" placeholder="add a task..." id="text_task" />
-        <button class="btn btn_add" id="add_task">
-          <i class="fa-solid fa-plus"></i>
-        </button>
+        <form action="/addTask" method="post">
+          <input
+            type="text"
+            placeholder="add a task..."
+            id="text_task"
+            name="newTask"
+            required
+          />
+          <button type="submit" class="btn btn_add" id="add_task">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </form>
+
         <button class="btn btn_remove_all" id="remove_all_tasks">
           <i class="fa-solid fa-trash"></i>
         </button>
