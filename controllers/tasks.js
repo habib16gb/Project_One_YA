@@ -27,7 +27,7 @@ const addTask = async (req, res) => {
   const tasks = await getTasks();
   const newTask = { ...req.body, id: tasks.length + 1 };
   writeFile("users.json", JSON.stringify(tasks.concat(newTask)));
-  res.redirect("/");
+  res.redirect("/tasks");
 };
 
 const removeTask = async (req, res) => {
@@ -38,12 +38,12 @@ const removeTask = async (req, res) => {
     "users.json",
     JSON.stringify(tasks.filter((task) => task.id !== currentTask.id))
   );
-  res.status(200).redirect("/");
+  res.status(200).redirect("/tasks");
 };
 
 const removeAll = async (req, res) => {
   writeFile("users.json", JSON.stringify(req.body));
-  res.status(200).redirect("/");
+  res.status(200).redirect("/tasks");
 };
 
 export { addTask, getTasks, removeTask, showTasks, removeAll };

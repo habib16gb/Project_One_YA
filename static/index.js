@@ -42,13 +42,6 @@ function updateUI(arr) {
     .join("");
 }
 
-// (async () => {
-//   const response = await fetch("/getTasks");
-//   const jsonData = await response.json();
-
-//   updateUI(jsonData);
-// })();
-
 document.addEventListener("DOMContentLoaded", () => {
   fetch("/getTasks")
     .then((res) => res.json())
